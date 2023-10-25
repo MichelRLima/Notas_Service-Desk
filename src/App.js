@@ -3,6 +3,9 @@ import { Button, Input } from 'antd';
 import Titulo from "./Componentes/HeaderComponent/Titulo";
 import Frase from './Componentes/FraseComponent/Frase'
 import './App.css';
+import { ToastContainer } from 'react-toastify';
+import { alertSucess } from "./Componentes/Alerts/alertSucess";
+
 const { TextArea } = Input;
 
 const App = () => {
@@ -10,9 +13,12 @@ const App = () => {
   const [frases, setFrases] = useState([]);
   const [searchText, setSearchText] = useState("");
 
+
+
   useEffect(() => {
     const savedFrases = JSON.parse(localStorage.getItem("frases")) || [];
     setFrases(savedFrases);
+
   }, []);
 
   useEffect(() => {
@@ -23,6 +29,7 @@ const App = () => {
     if (inputText.trim() !== "") {
       setFrases([...frases, inputText]);
       setInputText("");
+      alertSucess("Frase adicionada!")
     }
   };
 
@@ -41,7 +48,7 @@ const App = () => {
     <div className="App">
       <Titulo></Titulo>
 
-
+      <ToastContainer />
       <div className="containerAdicionarFrase">
         <TextArea
           className="TextArea"

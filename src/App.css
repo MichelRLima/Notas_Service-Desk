@@ -28,14 +28,15 @@
 }
 
 .ButtonAdd {
-
+  color: white;
   width: 12em;
   margin-top: 1em;
-  background-color: rgb(51, 92, 61);
+  background-color: rgb(34, 102, 202);
 }
 
 button:hover {
   background-color: rgb(45, 122, 65);
+  color: white;
 }
 
 .divFrases {

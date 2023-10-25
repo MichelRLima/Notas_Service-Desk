@@ -4,6 +4,11 @@ import { BsPencil } from 'react-icons/bs';
 import { FiCopy } from 'react-icons/fi';
 import { AiFillDelete, AiTwotoneSave } from 'react-icons/ai';
 import { Input } from 'antd';
+import 'react-toastify/dist/ReactToastify.css';
+import { alertSucess } from '../Alerts/alertSucess';
+
+
+
 const { TextArea } = Input;
 
 function Frase(props) {
@@ -31,13 +36,15 @@ function Frase(props) {
         const textToCopy = props.frase;
         navigator.clipboard.writeText(textToCopy).then(
             function () {
-                console.log('Texto copiado com sucesso: ' + textToCopy);
+                alertSucess("Frase copiada!")
             },
             function (err) {
                 console.error('Falha ao copiar texto: ', err);
             }
         );
+
     };
+
 
     const ClickEditar = () => {
         setEditedFrase(props.frase);
@@ -59,9 +66,15 @@ function Frase(props) {
                 <div className={styles.NoEditing}>
                     <pre className={styles.frase}>{props.frase}</pre>
                     <div className={styles.buttons}>
-                        <BsPencil className={styles.pen} onClick={() => ClickEditar()}>Editar</BsPencil>
-                        <FiCopy className={styles.copy} onClick={handleCopyClick}>Copiar</FiCopy>
-                        <AiFillDelete className={styles.delete} onClick={() => props.handleDeleteFrase(props.index)}>Excluir</AiFillDelete>
+                        <div className={styles.containerButton}>
+                            <BsPencil className={styles.pen} onClick={() => ClickEditar()}>Editar</BsPencil>
+                        </div>
+                        <div className={styles.containerButton}>
+                            <FiCopy className={styles.copy} onClick={handleCopyClick}>Copiar</FiCopy>
+                        </div>
+                        <div className={styles.containerButton}>
+                            <AiFillDelete className={styles.delete} onClick={() => props.handleDeleteFrase(props.index)}>Excluir</AiFillDelete>
+                        </div>
                     </div>
                 </div>
             )}
