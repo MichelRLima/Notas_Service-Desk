@@ -1,23 +1,29 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
+# Arquivos de compilação
+*.class
+*.dll
+*.jar
 
-# testing
-/coverage
+# Arquivos de configuração locais (geralmente relacionados ao VSCode)
+.vscode/
 
-# production
-/build
+# Logs e arquivos temporários
+logs/
+*.log
+*.tmp
 
-# misc
-.DS_Store
+# Arquivos de ambiente e variáveis locais
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
 
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+# Arquivos de configuração específicos do sistema
+.DS_Store
+
+# Dependendo das bibliotecas de terceiros usadas, você pode precisar adicionar mais regras específicas para elas
+# Para projetos React padrão, isso geralmente deve ser suficiente

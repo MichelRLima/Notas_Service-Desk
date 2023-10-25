@@ -1,0 +1,98 @@
+.containerFrase {
+    border-radius: 1em;
+    display: flex;
+    /* Ativa o modelo de layout flexbox */
+    flex-direction: column;
+    /* Empilha os elementos verticalmente */
+    justify-content: center;
+    /* Centraliza verticalmente */
+    align-items: center;
+    /* Centraliza horizontalmente */
+    background-color: rgb(51, 92, 61);
+    min-width: 10em;
+    margin: 1em 1em;
+    max-width: 50em;
+    position: relative;
+    height: auto;
+    /* Permite que a altura se ajuste automaticamente ao conteúdo */
+    /* Aumente este valor conforme necessário */
+}
+
+.frase {
+    color: #efefef;
+    padding: 1em;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+
+    max-width: 100%;
+    margin-bottom: 3em;
+    overflow: auto;
+    white-space: pre-wrap;
+
+    /* Remova 'height: auto' para permitir a altura dinâmica */
+}
+
+
+
+
+
+.NoEditing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+}
+
+.buttons {
+
+    width: 10em;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1em;
+
+    position: absolute;
+    bottom: 0;
+}
+
+.pen {
+    width: 1.6em;
+    height: 1.6em;
+    margin-right: auto;
+    cursor: pointer;
+    color: white;
+
+}
+
+.copy {
+    width: 1.3em;
+    height: 1.3em;
+    cursor: pointer;
+    color: white;
+
+
+}
+
+.delete {
+    width: 1.3em;
+    height: 1.3em;
+    margin-left: auto;
+    cursor: pointer;
+    color: white;
+
+
+}
+
+.Editing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.save {
+
+    width: 1.3em;
+    height: 1.3em;
+    margin: 1em auto;
+    cursor: pointer;
+}

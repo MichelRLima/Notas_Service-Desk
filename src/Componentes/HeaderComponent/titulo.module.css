@@ -1,0 +1,34 @@
+.containerTitulo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: rgb(37, 35, 35);
+    padding: 2em;
+    font-family: 'Sometype Mono', monospace;
+    margin-bottom: 2em;
+
+
+}
+
+.pen {
+    width: 1.5em;
+    height: 1.5em;
+    margin-top: 0.3em;
+    margin-right: 1em;
+    color: white;
+}
+
+.titulo {
+    text-align: center;
+    color: white;
+    margin: 0
+}
+
+.journal {
+    margin-top: 0.3em;
+    width: 1.5em;
+    height: 1.5em;
+    margin-left: 1em;
+    color: white;
+}

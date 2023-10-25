@@ -1,38 +1,63 @@
-.App {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+
+
+}
+
+
+.containerAdicionarFrase {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+
+
+}
+
+.TextArea {
+  width: 50%;
+}
+
+.TextArea:hover {
+  background-color: rgb(224, 224, 224);
+}
+
+.ButtonAdd {
+
+  width: 12em;
+  margin-top: 1em;
+  background-color: rgb(51, 92, 61);
+}
+
+button:hover {
+  background-color: rgb(45, 122, 65);
+}
+
+.divFrases {
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+
+  height: 100%;
+}
+
+.imputBuscar {
+  margin-top: 2em;
+  width: 50%;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.containerPesquisa {
+  width: 100%;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+  align-items: center;
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
