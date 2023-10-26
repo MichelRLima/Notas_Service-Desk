@@ -5,6 +5,7 @@ import Frase from './Componentes/FraseComponent/Frase'
 import './App.css';
 import { ToastContainer } from 'react-toastify';
 import { alertSucess } from "./Componentes/Alerts/alertSucess";
+import Swal from 'sweetalert2';
 
 const { TextArea } = Input;
 
@@ -34,8 +35,29 @@ const App = () => {
   };
 
   const handleDeleteFrase = (index) => {
-    const newFrases = frases.filter((_, i) => i !== index);
-    setFrases(newFrases);
+    Swal.fire({
+      title: 'Deseja deletar essa frase?',
+
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sim, deletar frase',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const newFrases = frases.filter((_, i) => i !== index);
+        setFrases(newFrases);
+        Swal.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success'
+        )
+      }
+    })
+
+
+
   };
 
   const handleEditFrase = (index, editedFrase) => {

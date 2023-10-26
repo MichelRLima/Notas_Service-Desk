@@ -6,7 +6,7 @@ import { AiFillDelete, AiTwotoneSave } from 'react-icons/ai';
 import { Input } from 'antd';
 import 'react-toastify/dist/ReactToastify.css';
 import { alertSucess } from '../Alerts/alertSucess';
-
+import { MdCancel } from 'react-icons/md'
 
 
 const { TextArea } = Input;
@@ -29,6 +29,11 @@ function Frase(props) {
 
     const handleEditClick = () => {
         props.handleEditFrase(editedFrase, props.index);
+        setIsEditing(false);
+    };
+
+    const handleEditCancel = () => {
+
         setIsEditing(false);
     };
 
@@ -60,7 +65,14 @@ function Frase(props) {
                         value={editedFrase}
                         onChange={(e) => setEditedFrase(e.target.value)}
                     />
-                    <AiTwotoneSave className={styles.save} onClick={handleEditClick}>Salvar</AiTwotoneSave>
+                    <div className={styles.buttonsEdit}>
+                        <div className={styles.containerButton}>
+                            <AiTwotoneSave className={styles.edit} onClick={handleEditClick}>Salvar</AiTwotoneSave>
+                        </div>
+                        <div className={styles.containerButton}>
+                            <MdCancel className={styles.edit} onClick={handleEditCancel}></MdCancel>
+                        </div>
+                    </div>
                 </div>
             ) : (
                 <div className={styles.NoEditing}>

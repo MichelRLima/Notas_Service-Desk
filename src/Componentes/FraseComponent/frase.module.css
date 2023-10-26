@@ -22,7 +22,7 @@
     color: #efefef;
     padding: 1em;
     text-align: center;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Sometype Mono', monospace;
 
     max-width: 100%;
     margin-bottom: 3em;
@@ -109,11 +109,16 @@
 
 
 .save {
-
+    color: white;
     width: 1.3em;
     height: 1.3em;
     margin: 1em auto;
     cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.save:hover {
+    transform: scale(1.2);
 }
 
 .containerButton {
@@ -123,4 +128,17 @@
     justify-content: center;
     align-items: center;
     margin: 0 auto;
+}
+
+.buttonsEdit {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 1em;
+}
+
+.edit {
+    color: white;
+    width: 1.3em;
+    height: 1.3em;
+    cursor: pointer;
 }
