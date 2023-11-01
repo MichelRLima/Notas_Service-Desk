@@ -5,6 +5,7 @@ import Frase from './Componentes/FraseComponent/Frase'
 import './App.css';
 import { ToastContainer } from 'react-toastify';
 import { alertSucess } from "./Componentes/Alerts/alertSucess";
+import { BsArrowDownSquare } from 'react-icons/bs'
 import Swal from 'sweetalert2';
 
 const { TextArea } = Input;
@@ -66,9 +67,30 @@ const App = () => {
     setFrases(newFrases);
   };
 
+  const downloadTxtFile = () => {
+    const filename = "frases.txt";
+    const fileContent = frases.map(frase => frase + '\n\n').join('');
+    const blob = new Blob([fileContent], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
+
+
+
+
   return (
     <div className="App">
       <Titulo></Titulo>
+
+      <div onClick={downloadTxtFile} className="containerDownload">
+        <BsArrowDownSquare></BsArrowDownSquare>
+        <p>Baixar frases</p>
+      </div>
 
       <ToastContainer />
       <div className="containerAdicionarFrase">
@@ -117,6 +139,9 @@ const App = () => {
             ))
         }
       </div>
+
+
+
     </div>
   );
 };
