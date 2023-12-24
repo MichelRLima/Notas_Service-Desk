@@ -5,12 +5,13 @@ import Frase from './Componentes/FraseComponent/Frase'
 import './App.css';
 import { ToastContainer } from 'react-toastify';
 import { alertSucess } from "./Componentes/Alerts/alertSucess";
-import { BsArrowDownSquare } from 'react-icons/bs'
+import { BsArrowDownSquare, BsArrowUpSquare } from 'react-icons/bs'
 import Swal from 'sweetalert2';
 
 const { TextArea } = Input;
 
 const App = () => {
+  const { Search } = Input;
   const [inputText, setInputText] = useState("");
   const [frases, setFrases] = useState([]);
   const [searchText, setSearchText] = useState("");
@@ -20,6 +21,7 @@ const App = () => {
   useEffect(() => {
     const savedFrases = JSON.parse(localStorage.getItem("frases")) || [];
     setFrases(savedFrases);
+
 
   }, []);
 
@@ -69,7 +71,7 @@ const App = () => {
 
   const downloadTxtFile = () => {
     const filename = "frases.txt";
-    const fileContent = frases.map(frase => frase + '\n\n').join('');
+    const fileContent = frases.map(frase => frase + '\n#\n').join('');
     const blob = new Blob([fileContent], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
@@ -79,6 +81,24 @@ const App = () => {
     URL.revokeObjectURL(url);
   };
 
+  const handleUploadTxtFile = async (e) => {
+    const file = e.target.files[0];
+
+    if (file) {
+      try {
+        const textContent = await file.text();
+        const newFrases = textContent.split('#').filter(frase => frase.trim() !== "");
+
+        setFrases(newFrases);
+        alertSucess("Realizado upload das frases");
+      } catch (error) {
+        console.error("Erro ao ler o arquivo:", error);
+        // Trate o erro conforme necessário
+      }
+    }
+  };
+
+
 
 
 
@@ -87,10 +107,30 @@ const App = () => {
     <div className="App">
       <Titulo></Titulo>
 
-      <div onClick={downloadTxtFile} className="containerDownload">
-        <BsArrowDownSquare></BsArrowDownSquare>
-        <p>Baixar frases</p>
+      <div className="containerButtons">
+
+
+        <div className="containerUpload">
+
+          <input
+            class="file-input"
+            type="file"
+            accept=".txt"
+            onChange={handleUploadTxtFile}
+          />
+          <BsArrowUpSquare ></BsArrowUpSquare >
+          <p>Upload frases</p>
+        </div>
+
+        <div onClick={downloadTxtFile} className="containerDownload">
+          <BsArrowDownSquare></BsArrowDownSquare>
+          <p>Download frases</p>
+        </div>
+
       </div>
+
+
+
 
       <ToastContainer />
       <div className="containerAdicionarFrase">
@@ -113,7 +153,7 @@ const App = () => {
 
       <div className="containerPesquisa">
 
-        <Input
+        <Search
           className="imputBuscar"
           type="text"
           placeholder="Pesquisar frases"

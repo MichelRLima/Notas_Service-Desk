@@ -35,7 +35,7 @@
 }
 
 button:hover {
-  background-color: rgb(45, 122, 65);
+
   color: white;
 }
 
@@ -63,30 +63,78 @@ button:hover {
 
 }
 
+.containerButtons {
+
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  height: 3em;
+
+}
+
 .containerDownload {
-  margin-top: -1em;
-  margin-bottom: 1em;
+
   cursor: pointer;
   text-align: center;
-  border-radius: 0.7em;
-  margin-left: auto;
+  border-radius: 0.3em;
   margin-right: 1em;
   display: flex;
-  width: 8em;
+  width: 9em;
   height: 2em;
-  background-color: rgb(100, 100, 100);
+  background-color: rgb(28, 95, 158);
   justify-content: center;
   align-items: center;
 }
 
-.containerDownload p {
+.containerUpload {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 0.3em;
+  margin-left: 1em;
+  display: flex;
+  width: 9em;
+  height: 2em;
+  background-color: rgb(224, 163, 33);
+  justify-content: center;
+  align-items: center;
+
+}
+
+
+.containerDownload:hover {
+
+  background-color: rgb(61, 141, 216);
+}
+
+.containerUpload:hover {
+  background-color: rgb(250, 200, 94);
+}
+
+
+.file-input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  cursor: pointer;
+  padding: 2em;
+}
+
+.containerButtons p {
 
   font-size: 0.9em;
   margin-left: 0.5em;
-  color: #efefef
+  color: #efefef;
+  cursor: pointer;
 }
 
-.containerDownload svg {
+.containerButtons svg {
   color: #efefef;
+  cursor: pointer;
 
 }

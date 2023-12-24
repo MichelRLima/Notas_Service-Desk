@@ -1,12 +1,35 @@
+.containerHeader {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    background-color: rgb(37, 35, 35);
+    padding: 2em;
+    margin-bottom: 2em;
+
+}
+
+.containerBy {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: rgb(184, 184, 184);
+    font-size: 0.7em;
+}
+
+.containerBy a {
+    color: rgb(184, 184, 184);
+}
+
 .containerTitulo {
     width: 100%;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     background-color: rgb(37, 35, 35);
-    padding: 2em;
     font-family: 'Sometype Mono', monospace;
-    margin-bottom: 2em;
+
 
 
 }
