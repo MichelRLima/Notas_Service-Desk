@@ -71,7 +71,7 @@ const App = () => {
 
   const downloadTxtFile = () => {
     const filename = "frases.txt";
-    const fileContent = frases.map(frase => frase + '\n#\n').join('');
+    const fileContent = frases.map(frase => frase + '###').join('');
     const blob = new Blob([fileContent], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
@@ -87,7 +87,7 @@ const App = () => {
     if (file) {
       try {
         const textContent = await file.text();
-        const newFrases = textContent.split('#').filter(frase => frase.trim() !== "");
+        const newFrases = textContent.split('###').filter(frase => frase.trim() !== "");
 
         setFrases(newFrases);
         alertSucess("Realizado upload das frases");
